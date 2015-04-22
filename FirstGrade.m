@@ -30,10 +30,50 @@
     
     [res add:b];
     
-    NSLog(@"%d/%dx + %d/%d= %d/%d", [a.numerator intValue], [a.denominator intValue], [b.numerator intValue], [b.denominator intValue], [res.numerator intValue], [res.denominator intValue]);
-
-    
-    
-    
+    NSLog(@"%d/%dx + %d/%d= %d/%d", [a.numerator intValue], [a.denominator intValue], [b.numerator intValue], [b.denominator intValue], [res.numerator intValue], [res.denominator intValue]);    
 }
+
+-(int)getFirstGradeToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
+    
+    Fraction *x1, *a, *b;
+    
+    x1 = [[Fraction alloc] init];
+    a = [[Fraction alloc] init];
+    b = [[Fraction alloc] init];
+    
+    int denominatorMultiplier = (int)complexity;
+    if(xValueDominium < 2)
+        denominatorMultiplier = 0;
+    int numeratorMultiplier = 20*complexity;
+    int subtractor = numeratorMultiplier/2;
+    if(xValueDominium < 1){
+        numeratorMultiplier /= 2;
+        subtractor = 0;
+    }
+    
+    [x1 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    [a setTo:(arc4random() % ((int)complexity + 1)) over:1];
+    [b setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    
+    [x1 reduce];
+    [x1 print];
+    Fraction *temp, *res;
+    
+    temp = [[Fraction alloc] initWithFraction:x1];
+    [temp multiply:a];
+    res = [[Fraction alloc] initWithFraction:temp];
+    
+    [res add:b];
+    
+    
+    [array addObject:[NSString stringWithFormat:@"%dx", [a getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [a getDenominator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [b getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [b getDenominator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [res getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [res getDenominator]]];
+    return 1;
+}
+
+
 @end

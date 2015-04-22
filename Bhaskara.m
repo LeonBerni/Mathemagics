@@ -11,6 +11,9 @@
 
 @implementation Bhaskara
 
+/**
+ Gera uma equação de Bhaskara e printa na tela.
+ **/
 -(void)generateBhaskhara{
     
     Fraction *x1, *x2;
@@ -61,6 +64,78 @@
     
     //[self resolveBhaskharaWithA:newA B:newB C:newC];
 }
+
+
+/**
+ Essa função devolve 1 no sucesso. É legal que usemos ela numa chamada de if, para evitar que as threads se atropelem.
+ **/
+-(int)getBhaskaraToArray: (NSMutableArray*) array entry:(int)entry anwser:(int)xValueDominium complexity:(double)complexity{
+    
+    Fraction *x1, *x2;
+    
+    x1 = [[Fraction alloc] init];
+    x2 = [[Fraction alloc] init];
+    
+    int denominatorMultiplier = (int)complexity;
+    if(xValueDominium < 2)
+        denominatorMultiplier = 0;
+    int numeratorMultiplier = 20*complexity;
+    int subtractor = numeratorMultiplier/2;
+    if(xValueDominium < 1){
+        numeratorMultiplier /= 2;
+        subtractor = 0;
+    }
+    
+    [x1 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    [x2 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    
+    [x1 reduce];
+    [x2 reduce];
+    //    [x1 setTo:4 over:1];
+    //    [x2 setTo:8 over:3];
+    [x1 print];
+    [x2 print];
+    int a, b, c;
+    
+    //    a = [[Fraction alloc] init];
+    //    b = [[Fraction alloc] init];
+    //    c = [[Fraction alloc] init];
+    
+    Fraction *temp1, *temp2;
+    
+    temp1 = [[Fraction alloc] initWithFraction:x1];
+    temp2 = [[Fraction alloc] initWithFraction:x1];
+    
+    
+    [temp1 add:x2];
+    
+    [temp2 multiply:x2];
+    
+    [Fraction applyMMC:temp1 Fraction2:temp2];
+    
+    b = -[temp1 getNumerator];
+    c = [temp2 getNumerator];
+    
+    //    [Fraction applyMMC:temp1 Fraction2:temp2];
+    a = [temp1 getDenominator];
+    
+    
+    printf("%d x^2 + %d x + %d = 0, \n", a, b, c);
+    
+    Fraction* newA = [[Fraction alloc] initWithNumerator:a denominator:1];
+    Fraction* newB = [[Fraction alloc] initWithNumerator:b denominator:1];
+    Fraction* newC = [[Fraction alloc] initWithNumerator:c denominator:1];
+    
+    
+    [array addObject:[NSString stringWithFormat:@"%dx^2", [newA getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newA getDenominator]]];
+    [array addObject:[NSString stringWithFormat:@"%dx", [newB getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newB getDenominator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newC getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newC getDenominator]]];
+    return 1;
+}
+
 
 
 -(void)resolveBhaskharaWithA:(Fraction*) a B:(Fraction*) b C:(Fraction*) c{

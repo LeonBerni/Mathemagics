@@ -12,5 +12,6 @@
 @interface FirstGrade : NSObject
 
 -(void)generateEquation;
+-(int)getFirstGradeToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity;
 
 @end
