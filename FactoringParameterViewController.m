@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.numberTypeData = @[@"Naturais", @"Inteiros", @"Racionais", @"Reais", @"Fração"];
     
-    self.numberTypeData2 = @[@"Desu", @"desune", @"subarashii"];
+    self.numberTypeData2 = @[@"Comum", @"Agrupamento", @"Trinomio"];
     
     self.parameterPicker.dataSource = self;
     self.parameterPicker.delegate = self;
@@ -68,18 +68,30 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSLog(@"OI OI Q TAL FUNFAR?");
     EquationInfos* equationToBeSent = [[EquationInfos alloc] init];
     NSNumber *complexity = [[NSNumber alloc] initWithFloat:self.sliderDesu.value];
-    equationToBeSent.inputType = [self.numberTypeData2 objectAtIndex:[self.parameterPicker selectedRowInComponent:0]];
-    equationToBeSent.awnserType = [self.numberTypeData objectAtIndex:[self.parameterPicker selectedRowInComponent:1]];
+    equationToBeSent.inputType = [self.parameterPicker selectedRowInComponent:0];
+    equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:1];
     equationToBeSent.complexity = complexity;
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     
-    if ([equationToBeSent.inputType isEqual:@"Desu"]) {
-        NSLog(@"Kawaii ne");
+    switch (equationToBeSent.inputType) {
+        case 0:
+            NSLog(@"Comum");
+            equationToBeSent.formulas = @[@"a(bx + cy) = 0"];
+            break;
+        case 1:
+            NSLog(@"Agrup");
+            equationToBeSent.formulas = @[@"(ax+c).(bx + d) = 0"];
+            break;
+        case 2:
+            NSLog(@"Trinomio");
+            equationToBeSent.formulas = @[@"(ax+bx)^2 = 0"];
+            break;
+            
+        default:
+            break;
     }
-    equationToBeSent.formulas = @[@"(a + b)^2 = a^2 + 2.a.b + b^2", @"(a - b)^2 = a^2 - 2.a.b + bˆ2"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
     
     

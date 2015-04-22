@@ -65,7 +65,7 @@
     //     Pass the selected object to the new view controller.
     EquationInfos* equationToBeSent = [[EquationInfos alloc] init];
     NSNumber *complexity = [[NSNumber alloc] initWithFloat:self.sliderDesu.value];
-    equationToBeSent.awnserType = [self.numberTypeData objectAtIndex:[self.parameterPicker selectedRowInComponent:0]];
+    equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:0];
     equationToBeSent.complexity = complexity;
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"ax+b = 0"];
