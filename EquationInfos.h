@@ -13,8 +13,8 @@
 
 @property (retain, strong) NSString *equationName;
 @property NSArray* phases;
-@property NSString* inputType;
-@property NSString* awnserType;
+@property NSInteger inputType;
+@property NSInteger answerType;
 @property NSNumber* complexity;
 @property NSArray* formulas;
 
