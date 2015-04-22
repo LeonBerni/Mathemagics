@@ -12,6 +12,6 @@
 
 @interface EquationController : UIViewController <ReceiveEquation>
 
-@property EquationInfos* receivedEquation;
+@property EquationInfos* answerType;
 
 @end

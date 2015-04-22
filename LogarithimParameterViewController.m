@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.sliderValue.text = [NSString stringWithFormat:@"%.0f",self.sliderDesu.value*10];
     // Do any additional setup after loading the view.
 }
 
@@ -46,6 +47,12 @@
         [[segue destinationViewController] setEquation:equationToBeSent];
     }
 }
+
+- (IBAction)sliderComplexity:(id)sender {
+    self.sliderValue.text = [NSString stringWithFormat:@"%.0f",self.sliderDesu.value*10];
+    
+}
+
 - (IBAction)backToRootView:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

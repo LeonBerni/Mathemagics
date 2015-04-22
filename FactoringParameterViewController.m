@@ -20,6 +20,8 @@
     // Do any additional setup after loading the view.
     self.numberTypeData = @[@"Naturais", @"Inteiros", @"Racionais", @"Reais", @"Fração"];
     
+    self.numberTypeData2 = @[@"Desu", @"desune", @"subarashii"];
+    
     self.parameterPicker.dataSource = self;
     self.parameterPicker.delegate = self;
     
@@ -38,16 +40,24 @@
 
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
+    return 2;
 }
 
 // The number of rows of data
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return self.numberTypeData.count;
+    if (component == 0) {
+        return self.numberTypeData2.count;
+    } else{
+        
+        return self.numberTypeData.count;
+    }
 }
 
 // The data to return for the row and component (column) that's being passed in
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if (component == 0) {
+        return self.numberTypeData2[row];
+    }
     return self.numberTypeData[row];
 }
 
@@ -58,12 +68,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"OI OI Q TAL FUNFAR?");
     EquationInfos* equationToBeSent = [[EquationInfos alloc] init];
     NSNumber *complexity = [[NSNumber alloc] initWithFloat:self.sliderDesu.value];
-    equationToBeSent.inputType = [self.numberTypeData objectAtIndex:[self.parameterPicker selectedRowInComponent:0]];
-//    equationToBeSent.awnserType = [self.numberTypeData objectAtIndex:[self.parameterPicker selectedRowInComponent:1]];
+    equationToBeSent.inputType = [self.numberTypeData2 objectAtIndex:[self.parameterPicker selectedRowInComponent:0]];
+    equationToBeSent.awnserType = [self.numberTypeData objectAtIndex:[self.parameterPicker selectedRowInComponent:1]];
     equationToBeSent.complexity = complexity;
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
+    
+    if ([equationToBeSent.inputType isEqual:@"Desu"]) {
+        NSLog(@"Kawaii ne");
+    }
     equationToBeSent.formulas = @[@"(a + b)^2 = a^2 + 2.a.b + b^2", @"(a - b)^2 = a^2 - 2.a.b + bˆ2"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
     

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderDesu;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValue;
 @property NSArray* numberTypeData;
+@property NSArray* numberTypeData2;
 @property (weak, nonatomic) IBOutlet UILabel *eqName;
 
 @end
