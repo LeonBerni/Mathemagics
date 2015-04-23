@@ -71,7 +71,8 @@
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"x = -b±√∆/ 2.a", @"∆ = bˆ2 - 4.a.c"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
-    
+    if(![Bhaskara getBhaskaraToArray:equationToBeSent.parts anwser:(int)equationToBeSent.answerType complexity:(int)equationToBeSent.complexity])
+        return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {
         [[segue destinationViewController] setEquation:equationToBeSent];

@@ -17,5 +17,6 @@
 @property NSInteger answerType;
 @property NSNumber* complexity;
 @property NSArray* formulas;
+@property NSMutableArray* parts;
 
 @end

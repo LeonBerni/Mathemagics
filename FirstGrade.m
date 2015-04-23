@@ -33,7 +33,7 @@
     NSLog(@"%d/%dx + %d/%d= %d/%d", [a.numerator intValue], [a.denominator intValue], [b.numerator intValue], [b.denominator intValue], [res.numerator intValue], [res.denominator intValue]);    
 }
 
--(int)getFirstGradeToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
++(int)getFirstGradeToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
     
     Fraction *x1, *a, *b;
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EquationInfos.h"
+#import "Bhaskara.h"
 @interface BhaskaraParameterViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *parameterPicker;

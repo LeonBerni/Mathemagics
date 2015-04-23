@@ -74,6 +74,8 @@
     equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:1];
     equationToBeSent.complexity = complexity;
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
+    if(![Fatoracao getAnyFatorToArray:equationToBeSent.parts type:(int)equationToBeSent.inputType dominium:(int)equationToBeSent.answerType complexity:(int)equationToBeSent.complexity])
+        return;
     
     switch (equationToBeSent.inputType) {
         case 0:

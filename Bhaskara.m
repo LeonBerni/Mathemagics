@@ -69,7 +69,7 @@
 /**
  Essa função devolve 1 no sucesso. É legal que usemos ela numa chamada de if, para evitar que as threads se atropelem.
  **/
--(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
++(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
     
     Fraction *x1, *x2;
     

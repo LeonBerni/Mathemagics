@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EquationInfos.h"
+#import "Logarithm.h"
 @interface LogarithimParameterViewController : UIViewController 
 @property (weak, nonatomic) IBOutlet UISlider *sliderDesu;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValue;

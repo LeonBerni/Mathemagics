@@ -241,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibQ-Ww-RBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.5" y="-120.5"/>
+            <point key="canvasLocation" x="549.5" y="-158.5"/>
         </scene>
         <!--Bhaskara Parameter View Controller-->
         <scene sceneID="s68-4H-7e7">
@@ -455,7 +455,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hh-qn-R0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GAa-P3-Sy9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1213.5999999999999" y="489.42666666666668"/>
+            <point key="canvasLocation" x="1208.5" y="487.5"/>
         </scene>
     </scenes>
     <resources>
@@ -468,6 +468,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ug1-uo-KZ1"/>
+        <segue reference="Mbg-Ba-P9h"/>
     </inferredMetricsTieBreakers>
 </document>

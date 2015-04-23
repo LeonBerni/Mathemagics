@@ -100,14 +100,16 @@
 
 /* TO ARRAY */
 
--(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(int)complexity{
++(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(int)complexity{
     
-    int rand = arc4random() % type;
+    int rand = 0;
+    if(type != 0)
+        rand = arc4random() % type;
     
-    if(complexity > 0){
+    if(type > 0){
         if(rand == 0)
             rand = arc4random() % type;
-        if(complexity > 1)
+        if(type > 1)
             if(rand < 2)
                 rand = arc4random() % type;
     }
@@ -140,7 +142,7 @@
     return 0;
 }
 
--(int)getFatorComumToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getFatorComumToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
     
     int denominatorMultiplier = (int)complexity;
     if(xDominium < 2)
@@ -177,7 +179,7 @@
     return 1;
 }
 
--(int)getAgrupamentoToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getAgrupamentoToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
     
     int denominatorMultiplier = (int)complexity;
     if(xDominium < 2)
@@ -227,7 +229,7 @@
     return 1;
 }
 
--(int)getTrinomioToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getTrinomioToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
     
     int denominatorMultiplier = (int)complexity;
     if(xDominium < 2)

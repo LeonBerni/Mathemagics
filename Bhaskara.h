@@ -12,6 +12,6 @@
 
 
 -(void)generateBhaskhara;
--(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity;
++(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity;
 
 @end

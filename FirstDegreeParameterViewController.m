@@ -70,7 +70,8 @@
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"ax+b = 0"];
     equationToBeSent.phases = @[@"ax+b = 0", @"ax = -b", @"x = -b/a"];
-    
+    if(![FirstGrade getFirstGradeToArray:equationToBeSent.parts anwser:(int)equationToBeSent.answerType complexity:(int)equationToBeSent.complexity])
+        return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {
         [[segue destinationViewController] setEquation:equationToBeSent];

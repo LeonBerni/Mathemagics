@@ -41,7 +41,8 @@
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"a^x = b <=> log aˆb = x"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
-    
+    if(![Logarithm getLogToArray:equationToBeSent.parts complexity:(int)equationToBeSent.complexity])
+        return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {
         [[segue destinationViewController] setEquation:equationToBeSent];
