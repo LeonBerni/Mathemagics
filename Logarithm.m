@@ -30,7 +30,7 @@
     
     n = pow(x, y);
     
-    [array addObject:[NSString stringWithFormat:@"log  %d", n]];
+    [array addObject:[NSString stringWithFormat:@"%d", n]];
     [array addObject:[NSString stringWithFormat:@"%d", x]];
 
     

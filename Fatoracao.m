@@ -100,9 +100,9 @@
 
 /* TO ARRAY */
 
-+(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(NSNumber*)complexity{
++(int)getAnyFatorToArray:(NSMutableArray*)Array type:(NSInteger)type dominium:(int)xDominium complexity:(NSNumber*)complexity{
     
-    int temp = 10 * [complexity floatValue];
+    //int temp = 10 * [complexity floatValue];
     int rand = 0;
     if(type != 0)
         rand = arc4random() % type;
@@ -116,7 +116,7 @@
     }
     
 
-    switch (temp) {
+    switch (type) {
         case 0:
             if([self getFatorComumToArray:Array dominium:xDominium complexity:complexity]){
                 [Array addObject:[NSNumber numberWithInt:0]];
@@ -234,13 +234,13 @@
     [temp4 multiply:b];
     
     [Array addObject:[NSString stringWithFormat:@"%dxy", [temp1 getNumerator]]];
-    [Array addObject:[NSString stringWithFormat:@"%d", [temp1 getNumerator]]];
+    [Array addObject:[NSString stringWithFormat:@"%d", [temp1 getDenominator]]];
     [Array addObject:[NSString stringWithFormat:@"%dx", [temp2 getNumerator]]];
-    [Array addObject:[NSString stringWithFormat:@"%d", [temp2 getNumerator]]];
+    [Array addObject:[NSString stringWithFormat:@"%d", [temp2 getDenominator]]];
     [Array addObject:[NSString stringWithFormat:@"%dy", [temp3 getNumerator]]];
-    [Array addObject:[NSString stringWithFormat:@"%d", [temp3 getNumerator]]];
+    [Array addObject:[NSString stringWithFormat:@"%d", [temp3 getDenominator]]];
     [Array addObject:[NSString stringWithFormat:@"%d", [temp4 getNumerator]]];
-    [Array addObject:[NSString stringWithFormat:@"%d", [temp4 getNumerator]]];
+    [Array addObject:[NSString stringWithFormat:@"%d", [temp4 getDenominator]]];
 
     
     
@@ -292,20 +292,22 @@
     
     if(!inversion){
         NSLog(@"%d/%d x^2 + %d/%d x + %d/%d = 0", [res1.numerator intValue], [res1.denominator intValue], [res2.numerator intValue], [res2.denominator intValue], [res3.numerator intValue], [res3.denominator intValue]);
-        [Array addObject:[NSString stringWithFormat:@"%dx^2", [res1 getNumerator]]];
+        [Array addObject:[NSString stringWithFormat:@"%d", [res1 getNumerator]]];
         [Array addObject:[NSString stringWithFormat:@"%d", [res1 getDenominator]]];
-        [Array addObject:[NSString stringWithFormat:@"%dxy", [res2 getNumerator]]];
+        [Array addObject:[NSString stringWithFormat:@"%d", [res2 getNumerator]]];
         [Array addObject:[NSString stringWithFormat:@"%d", [res2 getDenominator]]];
-        [Array addObject:[NSString stringWithFormat:@"%dy^2", [res3 getNumerator]]];
+        [Array addObject:[NSString stringWithFormat:@"%d", [res3 getNumerator]]];
         [Array addObject:[NSString stringWithFormat:@"%d", [res3 getDenominator]]];
 
     }
     else{
         NSLog(@"%d/%d x^2 - %d/%d = 0", [res1.numerator intValue], [res1.denominator intValue], [res3.numerator intValue], [res3.denominator intValue]);
         [res3 setNumeratorWithInt:-([res3.numerator intValue])];
-        [Array addObject:[NSString stringWithFormat:@"%dx^2", [res1 getNumerator]]];
+        [Array addObject:[NSString stringWithFormat:@"%d", [res1 getNumerator]]];
         [Array addObject:[NSString stringWithFormat:@"%d", [res1 getDenominator]]];
-        [Array addObject:[NSString stringWithFormat:@"%dy^2", [res3 getNumerator]]];
+        [Array addObject:@"0"];
+        [Array addObject:@"1"];
+        [Array addObject:[NSString stringWithFormat:@"%d", [res3 getNumerator]]];
         [Array addObject:[NSString stringWithFormat:@"%d", [res3 getDenominator]]];
     }
     

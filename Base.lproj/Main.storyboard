@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="z02-04-CVK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="z02-04-CVK">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -112,7 +112,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKZ-uc-3Pn">
                                 <rect key="frame" x="-13" y="-35" width="400" height="837"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-Jb-LGJ">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-Jb-LGJ">
                                 <rect key="frame" x="43" y="334" width="283" height="31"/>
                                 <connections>
                                     <action selector="sliderComplexity:" destination="I7K-pp-sLw" eventType="valueChanged" id="aPt-Ey-GSY"/>
@@ -145,7 +145,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Qsb-VM-Nss" kind="push" id="eQ1-Ht-hRC"/>
+                                    <segue destination="Qsb-VM-Nss" kind="push" id="oj6-O4-XrE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guQ-DK-6NQ">
@@ -214,12 +214,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-FP-jZc">
-                                <rect key="frame" x="46" y="294" width="283" height="31"/>
-                                <connections>
-                                    <action selector="sliderComplexity:" destination="Rte-Ri-syT" eventType="valueChanged" id="JXT-5J-Mg0"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ar-ub-uiE">
                                 <rect key="frame" x="25" y="481" width="41" height="30"/>
                                 <state key="normal" title="Voltar">
@@ -229,6 +223,12 @@
                                     <action selector="backToRootView:" destination="Rte-Ri-syT" eventType="touchUpInside" id="l5z-er-swY"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-FP-jZc">
+                                <rect key="frame" x="46" y="293" width="283" height="31"/>
+                                <connections>
+                                    <action selector="sliderComplexity:" destination="Rte-Ri-syT" eventType="valueChanged" id="JXT-5J-Mg0"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -288,7 +288,7 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1IY-nD-LYy">
                                 <rect key="frame" x="-13" y="134" width="400" height="162"/>
                             </pickerView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vjB-Om-Xed">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vjB-Om-Xed">
                                 <rect key="frame" x="46" y="359" width="283" height="31"/>
                                 <connections>
                                     <action selector="sliderComplexity:" destination="sa0-H2-khS" eventType="valueChanged" id="HlP-f1-Irj"/>
@@ -375,7 +375,7 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="466-ap-DLd">
                                 <rect key="frame" x="-13" y="148" width="400" height="162"/>
                             </pickerView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-Jy-kdp">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.099999999999999978" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-Jy-kdp">
                                 <rect key="frame" x="46" y="373" width="283" height="31"/>
                                 <connections>
                                     <action selector="sliderComplexity:" destination="eSi-bM-eHa" eventType="valueChanged" id="SFe-bH-O5I"/>
@@ -468,6 +468,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Mbg-Ba-P9h"/>
+        <segue reference="oj6-O4-XrE"/>
     </inferredMetricsTieBreakers>
 </document>

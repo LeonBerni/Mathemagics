@@ -75,7 +75,7 @@
     [res add:b];
     
     
-    [array addObject:[NSString stringWithFormat:@"%dx", [a getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [a getNumerator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [a getDenominator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [b getNumerator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [b getDenominator]]];

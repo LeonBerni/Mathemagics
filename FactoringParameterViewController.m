@@ -74,14 +74,14 @@
     equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:1];
     equationToBeSent.complexity = complexity;
     equationToBeSent.parts = [[NSMutableArray alloc] init];
-    equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
-    if(![Fatoracao getAnyFatorToArray:equationToBeSent.parts type:equationToBeSent.inputType dominium:(int)equationToBeSent.answerType complexity:equationToBeSent.complexity])
-        return;
+    equationToBeSent.equationName = [NSString stringWithFormat:@"%ld",self.eqName.tag];
+    
+
     
     switch (equationToBeSent.inputType) {
         case 0:
             NSLog(@"Comum");
-            equationToBeSent.formulas = @[@"a(bx + cy) = 0"];
+            equationToBeSent.formulas = @[@"abx + acy = 0", @"a(bx + cy) = 0"];
             break;
         case 1:
             NSLog(@"Agrup");
@@ -97,6 +97,8 @@
     }
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
     
+    if(![Fatoracao getAnyFatorToArray:equationToBeSent.parts type:equationToBeSent.inputType dominium:(int)equationToBeSent.answerType complexity:equationToBeSent.complexity])
+        return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {
         [[segue destinationViewController] setEquation:equationToBeSent];

@@ -13,6 +13,6 @@
 -(void)generateAgrupamento;
 -(void)generateFatorComum;
 -(void)generateTrinomio;
-+(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(NSNumber*)complexity;
++(int)getAnyFatorToArray:(NSMutableArray*)Array type:(NSInteger)type dominium:(int)xDominium complexity:(NSNumber*)complexity;
 
 @end

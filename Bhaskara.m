@@ -134,9 +134,9 @@
     Fraction* newC = [[Fraction alloc] initWithNumerator:c denominator:1];
     
     
-    [array addObject:[NSString stringWithFormat:@"%dx^2", [newA getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newA getNumerator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [newA getDenominator]]];
-    [array addObject:[NSString stringWithFormat:@"%dx", [newB getNumerator]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [newB getNumerator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [newB getDenominator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [newC getNumerator]]];
     [array addObject:[NSString stringWithFormat:@"%d", [newC getDenominator]]];

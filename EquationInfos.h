@@ -14,6 +14,7 @@
 @property (retain, strong) NSString *equationName;
 @property NSArray* phases;
 @property NSInteger inputType;
+@property NSString* testeDes;
 @property NSInteger answerType;
 @property NSNumber* complexity;
 @property NSArray* formulas;
