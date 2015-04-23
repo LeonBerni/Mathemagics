@@ -38,10 +38,11 @@
     EquationInfos* equationToBeSent = [[EquationInfos alloc] init];
     NSNumber *complexity = [[NSNumber alloc] initWithFloat:self.sliderDesu.value];
     equationToBeSent.complexity = complexity;
+    equationToBeSent.parts = [[NSMutableArray alloc] init];
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"a^x = b <=> log aˆb = x"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
-    if(![Logarithm getLogToArray:equationToBeSent.parts complexity:(int)equationToBeSent.complexity])
+    if(![Logarithm getLogToArray:equationToBeSent.parts complexity:equationToBeSent.complexity])
         return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {

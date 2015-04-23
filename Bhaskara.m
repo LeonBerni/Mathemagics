@@ -69,25 +69,32 @@
 /**
  Essa função devolve 1 no sucesso. É legal que usemos ela numa chamada de if, para evitar que as threads se atropelem.
  **/
-+(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(double)complexity{
++(int)getBhaskaraToArray: (NSMutableArray*) array anwser:(int)xValueDominium complexity:(NSNumber*)complexity{
     
     Fraction *x1, *x2;
     
     x1 = [[Fraction alloc] init];
     x2 = [[Fraction alloc] init];
     
-    int denominatorMultiplier = (int)complexity;
+    float temp = (float)10 * [complexity floatValue];
+    int denominatorMultiplier = temp;
     if(xValueDominium < 2)
         denominatorMultiplier = 0;
-    int numeratorMultiplier = 20*complexity;
+    int numeratorMultiplier = 20*temp;
     int subtractor = numeratorMultiplier/2;
     if(xValueDominium < 1){
         numeratorMultiplier /= 2;
         subtractor = 0;
     }
+    if(denominatorMultiplier){
+        [x1 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+        [x2 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    }
+    else{
+        [x1 setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+        [x2 setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+    }
     
-    [x1 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
-    [x2 setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
     
     [x1 reduce];
     [x2 reduce];

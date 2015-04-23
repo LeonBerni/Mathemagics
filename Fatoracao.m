@@ -100,8 +100,9 @@
 
 /* TO ARRAY */
 
-+(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(int)complexity{
++(int)getAnyFatorToArray:(NSMutableArray*)Array type:(int)type dominium:(int)xDominium complexity:(NSNumber*)complexity{
     
+    int temp = 10 * [complexity floatValue];
     int rand = 0;
     if(type != 0)
         rand = arc4random() % type;
@@ -115,7 +116,7 @@
     }
     
 
-    switch (complexity) {
+    switch (temp) {
         case 0:
             if([self getFatorComumToArray:Array dominium:xDominium complexity:complexity]){
                 [Array addObject:[NSNumber numberWithInt:0]];
@@ -142,12 +143,13 @@
     return 0;
 }
 
-+(int)getFatorComumToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getFatorComumToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(NSNumber*)complexity{
     
-    int denominatorMultiplier = (int)complexity;
+    float temp = (float)10 * [complexity floatValue];
+    int denominatorMultiplier = temp;
     if(xDominium < 2)
         denominatorMultiplier = 0;
-    int numeratorMultiplier = 20*complexity;
+    int numeratorMultiplier = 20*temp;
     int subtractor = numeratorMultiplier/2;
     if(xDominium < 1){
         numeratorMultiplier /= 2;
@@ -158,10 +160,16 @@
     x = [[Fraction alloc] init];
     y = [[Fraction alloc] init];
     a = [[Fraction alloc] init];
-    
-    [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
-    [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
-    [a setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    if(denominatorMultiplier){
+        [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+        [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+        [a setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    }
+    else{
+        [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+        [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+        [a setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+    }
     
     Fraction *res1, *res2;
     res1 = [[Fraction alloc] initWithFraction:x];
@@ -179,26 +187,36 @@
     return 1;
 }
 
-+(int)getAgrupamentoToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getAgrupamentoToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(NSNumber*)complexity{
     
-    int denominatorMultiplier = (int)complexity;
+    float temp = (float)10 * [complexity floatValue];
+    int denominatorMultiplier = temp;
     if(xDominium < 2)
         denominatorMultiplier = 0;
-    int numeratorMultiplier = 20*complexity;
+    int numeratorMultiplier = 20*temp;
     int subtractor = numeratorMultiplier/2;
     if(xDominium < 1){
         numeratorMultiplier /= 2;
         subtractor = 0;
     }
-
     
     Fraction *x, *y, *a, *b, *c;
-    
-    x = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
-    y = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
-    a = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
-    b = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
-    c = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+    if(denominatorMultiplier){
+        x = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+        y = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+        a = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+        b = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+        c = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:arc4random() % denominatorMultiplier + 1];
+
+    }
+    else{
+        x = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:1];
+        y = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:1];
+        a = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:1];
+        b = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:1];
+        c = [[Fraction alloc] initWithNumerator:(arc4random() % numeratorMultiplier - subtractor) denominator:1];
+
+    }
     
     
     Fraction *temp1, *temp2, *temp3, *temp4;
@@ -229,12 +247,13 @@
     return 1;
 }
 
-+(int)getTrinomioToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(int)complexity{
++(int)getTrinomioToArray:(NSMutableArray*)Array dominium:(int)xDominium complexity:(NSNumber*)complexity{
     
-    int denominatorMultiplier = (int)complexity;
+    float temp = (float)10 * [complexity floatValue];
+    int denominatorMultiplier = temp;
     if(xDominium < 2)
         denominatorMultiplier = 0;
-    int numeratorMultiplier = 20*complexity;
+    int numeratorMultiplier = 20*temp;
     int subtractor = numeratorMultiplier/2;
     if(xDominium < 1){
         numeratorMultiplier /= 2;
@@ -244,9 +263,15 @@
     Fraction *x, *y;
     x = [[Fraction alloc] init];
     y = [[Fraction alloc] init];
+    if(denominatorMultiplier){
+        [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+        [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
+    }
+    else{
+        [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+        [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:1];
+    }
     
-    [x setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
-    [y setTo:(arc4random() % numeratorMultiplier - subtractor) over:arc4random() % denominatorMultiplier + 1];
     
     BOOL inversion = arc4random() % 2;
     

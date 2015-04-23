@@ -22,7 +22,7 @@
     NSLog(@"log %d (%d) = %d", x, n, y);
 }
 
-+(int)getLogToArray: (NSMutableArray*) array complexity:(double)complexity{
++(int)getLogToArray: (NSMutableArray*) array complexity:(NSNumber*)complexity{
     
     int x, y, n;
     x = arc4random() % 10 + 1;

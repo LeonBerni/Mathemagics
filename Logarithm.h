@@ -12,6 +12,6 @@
 @interface Logarithm : NSObject
 
 -(void)generateLogarithm;
-+(int)getLogToArray: (NSMutableArray*) array complexity:(double)complexity;
++(int)getLogToArray: (NSMutableArray*) array complexity:(NSNumber*)complexity;
 
 @end

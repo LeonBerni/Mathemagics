@@ -10,4 +10,13 @@
 
 @implementation EquationInfos
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.phases = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

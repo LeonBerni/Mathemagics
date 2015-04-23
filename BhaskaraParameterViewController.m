@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.numberTypeData = @[@"Naturais", @"Inteiros", @"Racionais", @"Reais", @"Fração"];
+    self.numberTypeData = @[@"Naturais", @"Inteiros", @"Reais"];
     
     self.parameterPicker.dataSource = self;
     self.parameterPicker.delegate = self;    
@@ -68,10 +68,11 @@
     NSNumber *complexity = [[NSNumber alloc] initWithFloat:self.sliderDesu.value];
     equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:0];
     equationToBeSent.complexity = complexity;
+    equationToBeSent.parts = [[NSMutableArray alloc] init];
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
     equationToBeSent.formulas = @[@"x = -b±√∆/ 2.a", @"∆ = bˆ2 - 4.a.c"];
     equationToBeSent.phases = @[@"To", @"Be", @"Announced"];
-    if(![Bhaskara getBhaskaraToArray:equationToBeSent.parts anwser:(int)equationToBeSent.answerType complexity:(int)equationToBeSent.complexity])
+    if(![Bhaskara getBhaskaraToArray:equationToBeSent.parts anwser:(int)equationToBeSent.answerType complexity:equationToBeSent.complexity])
         return;
     
     if ([[segue destinationViewController] conformsToProtocol:@protocol(ReceiveEquation)]) {

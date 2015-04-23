@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.numberTypeData = @[@"Naturais", @"Inteiros", @"Racionais", @"Reais", @"Fração"];
+    self.numberTypeData = @[@"Naturais", @"Inteiros", @"Reais"];
     
     self.numberTypeData2 = @[@"Comum", @"Agrupamento", @"Trinomio"];
     
@@ -73,8 +73,9 @@
     equationToBeSent.inputType = [self.parameterPicker selectedRowInComponent:0];
     equationToBeSent.answerType = [self.parameterPicker selectedRowInComponent:1];
     equationToBeSent.complexity = complexity;
+    equationToBeSent.parts = [[NSMutableArray alloc] init];
     equationToBeSent.equationName = [NSString stringWithFormat:@"%ld", self.eqName.tag];
-    if(![Fatoracao getAnyFatorToArray:equationToBeSent.parts type:(int)equationToBeSent.inputType dominium:(int)equationToBeSent.answerType complexity:(int)equationToBeSent.complexity])
+    if(![Fatoracao getAnyFatorToArray:equationToBeSent.parts type:equationToBeSent.inputType dominium:(int)equationToBeSent.answerType complexity:equationToBeSent.complexity])
         return;
     
     switch (equationToBeSent.inputType) {
